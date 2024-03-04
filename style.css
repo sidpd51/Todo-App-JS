@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFDDD2;
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+}
+
+.main-heading {
+    background-color:#83C5BE;
+    color: #EDF6F9;
+    text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.312);
+}
+
+.running-tasks-heading,
+.completed-tasks-heading {
+    color: #006D77;
+}
+
+#main-info .btn {
+    
+}
+
+.completed-btn,
+.running-btn {
+    border: 2px solid #006D77;
+    color: #006D77;
+}
+
+#main-info .btn {
+    border: 2px solid #006D77;
+}
+
+#main-info .btn:hover {
+    border: 2px solid #006D77;
+}
+
+.todo-card {
+    background-color: #006D77;
+    color: #FFDDD2;
+    width: 320px;
+}
+
+i {
+    cursor: pointer;
+}
