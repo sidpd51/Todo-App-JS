@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO-APP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <script src="https://kit.fontawesome.com/2604aff8b6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main p-4 text-center d-flex flex-column gap-3">
+        <div class="main-heading-section">
+            <h1 id="main-heading" class="main-heading py-4 mx-3 rounded-3 fw-bold mx-auto mb-sm-4">Create your  task</h1>
+        </div>
+        <div class="options ">
+            <form action="" class="row g-3">
+                <div class="col-3">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected disabled>By Category</option>
+                        <option value="1">Daily Task</option>
+                        <option value="2">Weekly Task</option>
+                        <option value="3">Monthly Task</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected disabled>By Priority</option>
+                        <option value="1">Low</option>
+                        <option value="2">Medium</option>
+                        <option value="3">High</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected disabled>By Status</option>
+                        <option value="1">Completed</option>
+                        <option value="2">Running</option>
+                    </select>
+                </div>
+                <div class="col-3"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
+            </form>
+        </div>
+        <div id="main-info" class="main-info d-flex flex-column flex-sm-row gap-3 justify-content-between text-start">
+            <form class="row g-3 needs-validation mx-auto" novalidate>
+                <div class="col-6">
+                  <label for="validationCustom01" class="form-label">Task Title</label>
+                  <input type="text" class="form-control" id="validationCustom01" placeholder="Task title" required>
+                  <div class="invalid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+                <div class="col-6">
+                  <label for="validationCustom02" class="form-label">End Date</label>
+                  <input type="date" class="form-control" id="validationCustom02" placeholder="End date" required>
+                  <div class="invalid-feedback">
+                    Looks good!
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <label for="validationCustom04" class="form-label">Priority Level</label>
+                  <select class="form-select" id="validationCustom04" required>
+                    <option selected value="">Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid Priority Level.
+                  </div>
+                </div>
+                <div class="col-6">
+                  <label for="validationCustom04" class="form-label">Category</label>
+                  <select class="form-select" id="validationCustom04" required>
+                    <option selected value="">Daily Task</option>
+                    <option value="">Monthly Task</option>
+                    <option value="">Weekly Task</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid Category.
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <label for="validationCustom05" class="form-label">Description</label>
+                  <textarea class="form-control" cols="30" rows="7" id="validationCustom05" placeholder="Write important notes here..." required></textarea>
+                  <div class="invalid-feedback">
+                    Please provide a valid Description.
+                  </div>
+                </div>
+                <div class="col-12 text-center">
+                  <button class="btn btn-primary w-50" type="submit" >Add to List</button>
+                </div>
+            </form>
+        </div>
+        <div class="load">
+            <button class="btn px-3 py-1 btn-primary ">Load More</button>
+        </div>
+    </div>
+</body>
+</html>
