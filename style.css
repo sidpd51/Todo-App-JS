@@ -48,3 +48,7 @@ body {
 i {
     cursor: pointer;
 }
+
+.w-85{
+    width: 90%;
+}
