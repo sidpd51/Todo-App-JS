@@ -128,7 +128,6 @@ i {
 /* media query */
 @media (min-width: 576px) and (max-width: 768px) {
   .sidenav {
-    /* width: 180px !important; */
     a {
       margin-left: 30px !important;
       font-size: 14px;
