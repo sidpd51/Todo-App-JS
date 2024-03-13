@@ -45,6 +45,11 @@ body {
   order: 3;
 }
 
+.form-control:focus {
+  box-shadow: none;
+  border-color: var(--main-light-color);
+}
+
 /* sidebar */
 .sidenav {
   height: 100%;
@@ -55,12 +60,16 @@ body {
   left: 0;
   background-color: var(--main-dark-color);
   overflow-x: hidden;
-  transition: 0.5s;
   padding-top: 60px;
+  transition: transform 450ms ease-in-out;
   a {
     color: var(--background);
-    transition: 0.3s;
+    transition: 0.6s;
   }
+}
+
+.content--isHidden {
+  transform: translateX(-320px);
 }
 
 .sidebar-btn {
@@ -72,15 +81,15 @@ body {
 }
 
 #mySidenav {
-  width: 250px;
+  width: 320px;
 }
 
 /* main */
 #main {
-  transition: margin-left 0.5s;
+  transition: transform 450ms ease-in-out;
   padding: 16px;
   margin-top: 65px;
-  margin-left: 250px;
+  margin-left: 320px;
 }
 
 .main-heading {
@@ -92,9 +101,6 @@ body {
 .running-tasks-heading,
 .completed-tasks-heading {
   color: #006d77;
-}
-
-#main-info .btn {
 }
 
 .completed-btn,
@@ -129,8 +135,7 @@ i {
 @media (min-width: 576px) and (max-width: 768px) {
   .sidenav {
     a {
-      margin-left: 30px !important;
-      font-size: 14px;
+      margin-left: 40px !important;
     }
   }
 }
@@ -161,6 +166,6 @@ i {
   }
 
   .navbar-collapse.show + #main {
-    margin-top: 380px!important;
+    margin-top: 380px !important;
   }
 }
