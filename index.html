@@ -10,7 +10,65 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="main p-4 text-center d-flex flex-column gap-3">
+     <!-- navbar -->
+     <nav class="navbar navbar-expand-sm p-0 m-0 p-3 fixed-top" style="background-color: #83C5BE;">
+        <div class="container-fluid">
+            <button class="navbar-toggler border-0 py-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="btn btn-lg border-0 sidebar-btn py-0">
+                <span class="navbar-toggler-icon" style="cursor:pointer; color: #006D77; " onclick="toggleNav()"></span>
+            </button>
+            <div class="collapse navbar-collapse second" id="navbarSupportedContent">
+                <form class="d-flex mx-auto w-100 justify-content-sm-center justify-content-start py-sm-0 py-3"
+                    id="navbar-search" role="search">
+                    <input id="navbar-searchInput"
+                        class="form-control w-lg-25 w-50 navbar-search-placeholder rounded-0 rounded-start border-0"
+                        style="background-color: #FFDDD2;" type="search" placeholder="write your project name"
+                        aria-label="Search">
+                    <button class="btn border-0 rounded-0 rounded-end"
+                        style="background-color: #FFDDD2; color: #006d77;" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <ul class="nav navbar-nav navbar-sm-link" id="nav-sm-link">
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa fa-dashboard fa-lg"></i> Dashboard</a></li>
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa-brands fa-windows fa-lg"></i> All Tasks</a></li>
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa-solid fa-circle-check fa-lg"></i> Completed Tasks</a>
+                    </li>
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa-solid fa-plus-circle fa-lg"></i> Add A Task</a></li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end align-items-center ms-auto navbar-icon third">
+                <a href="#" class="nav-icon mx-3"><i class="fa-regular fa-bell fa-2x"></i></a>
+                <a href="#" class="nav-icon mx-3"><i class="fa-solid fa-moon fa-2x"></i></a>
+                <a href="#" class="nav-icon ms-3"><i class="fa-regular fa-circle-user fa-2x"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- sidebar -->
+    <div id="mySidenav" class="sidenav sidebar h-100">
+        <div class="side-menu-container my-2 d-flex flex-column" id="sidemenu-container">
+            <a href="#" class="ms-5 text-decoration-none"><i
+                    class="my-4 me-2 bg-transparent fa fa-dashboard fa-lg"></i>Dashboard</a>
+            <a href="#" class="ms-5 text-decoration-none"><i
+                    class="my-4 me-2 bg-transparent fa-brands fa-windows fa-lg"></i> All Tasks</a>
+            <a href="#" class="ms-5 text-decoration-none"><i
+                    class="my-4 me-2 bg-transparent fa-solid fa-circle-check fa-lg"></i> Completed Tasks</a>
+            <a href="#" class="ms-5 text-decoration-none"><i
+                    class="my-4 me-2 bg-transparent fa-solid fa-plus-circle fa-lg"></i> Add A Task</a>
+        </div>
+    </div>
+
+    <!-- main -->
+    <div class="main p-4 text-center d-flex flex-column gap-3" id="main">
         <div class="main-heading-section">
             <h1 id="main-heading" class="main-heading py-3 mx-3 rounded-3 fw-bold w-75 mx-auto mb-sm-4">Create your  task</h1>
         </div>
@@ -93,4 +151,6 @@
         </div>
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js"></script>
 </html>
