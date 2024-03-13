@@ -1,12 +1,15 @@
 var isNavOpen = true;
 
 function toggleNav() {
-  if (isNavOpen) {
-    closeNav();
-  } else {
-    openNav();
-  }
-  isNavOpen = !isNavOpen;
+  // if (isNavOpen) {
+  //   closeNav();
+  // } else {
+  //   openNav();
+  // }
+  // isNavOpen = !isNavOpen;
+
+  $("#mySidenav").toggleClass("content--isHidden");
+  $("#main").toggleClass("content--isHidden");
 }
 
 function openNav() {
@@ -15,14 +18,14 @@ function openNav() {
       $("#mySidenav").css("width", "180px");
       $("#main").css("margin-left", "180px");
     } else {
-      $("#mySidenav").css("width", "250px");
-      $("#main").css("margin-left", "250px");
+      $("#mySidenav").css("width", "320px");
+      $("#main").css("margin-left", "320px");
     }
-    $("#mySidenav a").css("display", "block");
+    // $("#mySidenav a").css("display", "block");
   }
 
 function closeNav() {
-  $("#mySidenav a").css("display", "none");
+  // $("#mySidenav a").css("display", "none");
   $("#mySidenav").css("width", "0");
   $("#main").css("margin-left", "0");
 }
