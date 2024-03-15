@@ -53,7 +53,7 @@ body {
 /* sidebar */
 .sidenav {
   height: 100%;
-  width: 0;
+  width: 320px;
   position: fixed;
   z-index: 1;
   top: 67px;
@@ -61,15 +61,10 @@ body {
   background-color: var(--main-dark-color);
   overflow-x: hidden;
   padding-top: 60px;
-  transition: transform 450ms ease-in-out;
   a {
     color: var(--background);
     transition: 0.6s;
   }
-}
-
-.content--isHidden {
-  transform: translateX(-320px);
 }
 
 .sidebar-btn {
