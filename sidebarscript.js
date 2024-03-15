@@ -1,6 +1,15 @@
-var isNavOpen = true;
+$(document).ready(function() {
+  $('.navbar-collapse').on('shown.bs.collapse', function () {
+      $('#main').css({
+          'margin-top': '360px',
+          'transition': 'margin-top 1s ease'
+      });
+  });
 
-function toggleNav() {
-  $("#mySidenav").toggleClass("content--isHidden");
-  $("#main").toggleClass("content--isHidden");
-}
+  $('.navbar-collapse').on('hidden.bs.collapse', function () {
+      $('#main').css({
+          'margin-top': '80px',
+          'transition': 'margin-top 1s ease'
+      });
+  });
+});
