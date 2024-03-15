@@ -53,7 +53,7 @@ body {
 /* sidebar */
 .sidenav {
   height: 100%;
-  width: 320px;
+  width: 280px;
   position: fixed;
   z-index: 1;
   top: 67px;
@@ -76,7 +76,7 @@ body {
 }
 
 #mySidenav {
-  width: 320px;
+  width: 280px;
 }
 
 /* main */
@@ -84,7 +84,7 @@ body {
   transition: transform 450ms ease-in-out;
   padding: 16px;
   margin-top: 65px;
-  margin-left: 320px;
+  margin-left: 280px;
 }
 
 .main-heading {
@@ -115,7 +115,7 @@ body {
 .todo-card {
   background-color: #006d77;
   color: #ffddd2;
-  width: 380px;
+  width: 350px;
 }
 
 i {
@@ -164,3 +164,63 @@ i {
     margin-top: 380px !important;
   }
 }
+
+
+/* CREATE TODO PAGE STYLES  */
+
+.paddingX-5 {
+  padding-inline: 10rem !important;
+}
+
+input, select, textarea {
+  border: 3px solid #006d77 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: #ffddd2 !important;
+  color: #006d77 !important;
+}
+
+input:hover, select:hover, textarea:hover{
+  cursor: pointer;
+}
+
+.btn.btn-primary {
+  background-color: #006d77;
+  color: #edf6f9; 
+  border: none; 
+  padding: 10px 20px;
+}
+
+.btn.btn-primary:active, .btn.btn-primary:focus {
+  background-color: #006d77;
+}
+
+label {
+  color: #006d77;
+  font-style: inherit;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color: #006d77 !important;
+}
+
+select:checked {
+  color: #006d77 !important;
+}
+
+#validationCustom02::-webkit-calendar-picker-indicator{
+  /* background-color: #006d77 !important; */
+}
+/* .main::-webkit-scrollbar { width: 0 !important } */
+
+
+
+
+/* UPDATE TODO PAGE STYLES  */
+
+.order-group {
+  max-width:750px;
+  margin: 0 auto;
+}
+

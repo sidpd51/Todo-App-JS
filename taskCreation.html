@@ -1,95 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO-APP</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"
+        defer></script>
     <script src="https://kit.fontawesome.com/2604aff8b6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="main p-4 text-center d-flex flex-column gap-3">
-        <div class="main-heading-section">
-            <h1 id="main-heading" class="main-heading py-4 mx-3 rounded-3 fw-bold mx-auto mb-sm-4">Create your  task</h1>
-        </div>
-        <div class="options w-85 mx-auto ">
-          <form action="" class="d-flex justify-content-between align-items-center gap-3">
-            <select class="form-select" aria-label="Default select example">
-                <option selected disabled>By Category</option>
-                <option value="1">Daily Task</option>
-                <option value="2">Weekly Task</option>
-                <option value="3">Monthly Task</option>
-            </select>
-            <select class="form-select" aria-label="Default select example">
-                <option selected disabled>By Priority</option>
-                <option value="1">Low</option>
-                <option value="2">Medium</option>
-                <option value="3">High</option>
-            </select>
-            <select class="form-select" aria-label="Default select example">
-                <option selected disabled>By Status</option>
-                <option value="1">Completed</option>
-                <option value="2">Running</option>
-            </select>
-            <div class="col-3"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></div>
-          </form>
-        </div>
-        <div id="main-info" class="main-info d-flex flex-column flex-sm-row gap-3 justify-content-between text-start">
-            <form class="row g-3 needs-validation mx-auto" novalidate>
-                <div class="col-6">
-                  <label for="validationCustom01" class="form-label">Task Title</label>
-                  <input type="text" class="form-control" id="validationCustom01" placeholder="Task title" required>
-                  <div class="invalid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="validationCustom02" class="form-label">End Date</label>
-                  <input type="date" class="form-control" id="validationCustom02" placeholder="End date" required>
-                  <div class="invalid-feedback">
-                    Looks good!
-                  </div>
-                </div>
 
-                <div class="col-6">
-                  <label for="validationCustom04" class="form-label">Priority Level</label>
-                  <select class="form-select" id="validationCustom04" required>
-                    <option selected value="">Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid Priority Level.
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="validationCustom04" class="form-label">Category</label>
-                  <select class="form-select" id="validationCustom04" required>
-                    <option selected value="">Daily Task</option>
-                    <option value="">Monthly Task</option>
-                    <option value="">Weekly Task</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid Category.
-                  </div>
-                </div>
-                <div class="col-sm-12">
-                  <label for="validationCustom05" class="form-label">Description</label>
-                  <textarea class="form-control" cols="30" rows="7" id="validationCustom05" placeholder="Write important notes here..." required></textarea>
-                  <div class="invalid-feedback">
-                    Please provide a valid Description.
-                  </div>
-                </div>
-                <div class="col-12 text-center">
-                  <button class="btn btn-primary w-50" type="submit" >Add to List</button>
-                </div>
-            </form>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-sm p-0 m-0 p-3 fixed-top" style="background-color: #83C5BE;">
+        <div class="container-fluid">
+            <button class="navbar-toggler border-0 py-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="btn btn-lg border-0 sidebar-btn py-0">
+                <span class="navbar-toggler-icon" style="cursor:pointer; color: #006D77; " onclick="toggleNav()"></span>
+            </button>
+            <div class="collapse navbar-collapse second" id="navbarSupportedContent">
+                <form class="d-flex mx-auto w-100 justify-content-sm-center justify-content-start py-sm-0 py-3"
+                    id="navbar-search" role="search">
+                    <input id="navbar-searchInput"
+                        class="form-control w-lg-25 w-50 navbar-search-placeholder rounded-0 rounded-start border-0"
+                        style="background-color: #FFDDD2;" type="search" placeholder="write your project name"
+                        aria-label="Search">
+                    <button class="btn border-0 rounded-0 rounded-end"
+                        style="background-color: #FFDDD2; color: #006d77;" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <ul class="nav navbar-nav navbar-sm-link" id="nav-sm-link">
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa fa-dashboard fa-lg"></i> Dashboard</a></li>
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa-brands fa-windows fa-lg"></i> All Tasks</a></li>
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa-solid fa-circle-check fa-lg"></i> Completed Tasks</a>
+                    </li>
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa-solid fa-rotate fa-lg"></i> Running Tasks</a>
+                    </li>
+                    <li><a href="#" class=" text-decoration-none" style="color: #006d77;"><i
+                                class="my-4 me-2 bg-transparent fa-solid fa-plus-circle fa-lg"></i> Add A Task</a></li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end align-items-center ms-auto navbar-icon third">
+                <a href="#" class="nav-icon mx-3"><i class="fa-regular fa-bell fa-2x"></i></a>
+                <a href="#" class="nav-icon mx-3"><i class="fa-solid fa-moon fa-2x"></i></a>
+                <a href="#" class="nav-icon ms-3"><i class="fa-regular fa-circle-user fa-2x"></i></a>
+            </div>
         </div>
-        <div class="load">
-            <button class="btn px-3 py-1 btn-primary ">Load More</button>
+    </nav>
+
+    <!-- sidebar -->
+    <div id="mySidenav" class="sidenav sidebar h-100">
+        <div class="side-menu-container my-2 d-flex flex-column" id="sidemenu-container">
+            <a href="#" class="ms-4 my-3 text-decoration-none fs-5"><i
+                    class=" me-3 bg-transparent fa fa-dashboard fa-lg"></i>Dashboard</a>
+            <a href="#" class="ms-4 my-3 text-decoration-none fs-5"><i
+                    class=" me-3 bg-transparent fa-brands fa-windows fa-lg"></i> All Tasks</a>
+            <a href="#" class="ms-4 my-3 text-decoration-none fs-5"><i
+                    class=" me-3 bg-transparent fa-solid fa-circle-check fa-lg"></i> Completed Tasks</a>
+            <a href="#" class="ms-4 my-3 text-decoration-none fs-5"><i
+                    class=" me-3 bg-transparent fa-solid fa-rotate fa-lg"></i> Running Tasks</a>
+            <a href="#" class="ms-4 my-3 text-decoration-none fs-5"><i
+                    class=" me-3 bg-transparent fa-solid fa-plus-circle fa-lg"></i> Add A Task</a>
         </div>
     </div>
+
+    <!-- main -->
+
+    <div class="main p-4 text-center d-flex flex-column gap-3 paddingX-5" id="main">
+      <div class="main-heading-section">
+          <h1 id="main-heading" class="main-heading py-3 mx-3 rounded-3 fw-bold w-75 mx-auto mb-sm-4">Completed Tasks</h1>
+      </div>
+      <div id="order-group" class="order-group my-3 w-100">
+        <form action="" class="d-flex justify-content-between align-items-center gap-3">
+          <select class="form-select" aria-label="Default select example">
+              <option selected disabled>By Category</option>
+              <option value="1">Daily Task</option>
+              <option value="2">Weekly Task</option>
+              <option value="3">Monthly Task</option>
+          </select>
+          <select class="form-select" aria-label="Default select example">
+              <option selected disabled>By Priority</option>
+              <option value="1">Low</option>
+              <option value="2">Medium</option>
+              <option value="3">High</option>
+          </select>
+          <select class="form-select" aria-label="Default select example">
+              <option selected disabled>By Status</option>
+              <option value="1">Completed</option>
+              <option value="2">Running</option>
+          </select>
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+      <div class="real-main container" id="real-main">
+        <div class="row gy-sm-5 gy-2">
+          <div class="col col-sm-6 ">
+            <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
+              <div class="todo-title-info d-flex align-items-center justify-content-between">
+                  <span class="todo-title fw-medium">Learn Javascript</span>
+                  <i class="fa-solid fa-circle-info fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+              <div class="todo-date-info d-flex align-items-center justify-content-between ">
+                  <span class="todo-date fw-medium">Start date: 07-07-2023</span>
+                  <i class="fa-solid fa-pen-to-square fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+              <div class="todo-delete-info d-flex align-items-center justify-content-between">
+                  <span class="mark-as-completed fw-medium"><i class="fa-regular fa-square fa-lg
+                      me-2" style="color: #FFDDD2;"></i>Mark as completed</span>
+                  <i class="fa-regular fa-trash-can fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col col-sm-6">
+            <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
+              <div class="todo-title-info d-flex align-items-center justify-content-between">
+                  <span class="todo-title fw-medium">Learn Javascript</span>
+                  <i class="fa-solid fa-circle-info fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+              <div class="todo-date-info d-flex align-items-center justify-content-between ">
+                  <span class="todo-date fw-medium">Start date: 07-07-2023</span>
+                  <i class="fa-solid fa-pen-to-square fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+              <div class="todo-delete-info d-flex align-items-center justify-content-between">
+                  <span class="mark-as-completed fw-medium"><i class="fa-regular fa-square fa-lg
+                      me-2" style="color: #FFDDD2;"></i>Mark as completed</span>
+                  <i class="fa-regular fa-trash-can fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col col-sm-6">
+            <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
+              <div class="todo-title-info d-flex align-items-center justify-content-between">
+                  <span class="todo-title fw-medium">Learn Javascript</span>
+                  <i class="fa-solid fa-circle-info fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+              <div class="todo-date-info d-flex align-items-center justify-content-between ">
+                  <span class="todo-date fw-medium">Start date: 07-07-2023</span>
+                  <i class="fa-solid fa-pen-to-square fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+              <div class="todo-delete-info d-flex align-items-center justify-content-between">
+                  <span class="mark-as-completed fw-medium"><i class="fa-regular fa-square fa-lg
+                      me-2" style="color: #FFDDD2;"></i>Mark as completed</span>
+                  <i class="fa-regular fa-trash-can fa-lg" style="color: #FFDDD2;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="load mt-4 ">
+        <button class="btn px-3 py-1 btn-primary ">Load More</button>
+      </div>
+    </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="sidebarscript.js"></script>
 </html>
+
+
+
+
