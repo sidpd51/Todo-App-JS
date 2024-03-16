@@ -64,15 +64,15 @@
     <!-- sidebar -->
     <div id="mySidenav" class="sidenav sidebar h-100">
         <div class="side-menu-container my-2 d-flex flex-column" id="sidemenu-container">
-            <a href="#" class="ms-5 my-3 text-decoration-none fs-5"><i
+            <a href="#" class="ms-5 my-3 text-decoration-none fs-5" id="dashboard"><i
                     class=" me-3 bg-transparent fa fa-dashboard fa-lg"></i>Dashboard</a>
-            <a href="#" class="ms-5 my-3 text-decoration-none fs-5"><i
+            <a href="#" class="ms-5 my-3 text-decoration-none fs-5" id="allTasks"><i
                     class=" me-3 bg-transparent fa-brands fa-windows fa-lg"></i> All Tasks</a>
-            <a href="#" class="ms-5 my-3 text-decoration-none fs-5"><i
+            <a href="#" class="ms-5 my-3 text-decoration-none fs-5" id="completedTasks"><i
                     class=" me-3 bg-transparent fa-solid fa-circle-check fa-lg"></i> Completed Tasks</a>
-            <a href="#" class="ms-5 my-3 text-decoration-none fs-5"><i
+            <a href="#" class="ms-5 my-3 text-decoration-none fs-5" id="runningTasks"><i
                     class=" me-3 bg-transparent fa-solid fa-rotate fa-lg"></i> Running Tasks</a>
-            <a href="#" class="ms-5 my-3 text-decoration-none fs-5"><i
+            <a href="#" class="ms-5 my-3 text-decoration-none fs-5" id="addTasks"><i
                     class=" me-3 bg-transparent fa-solid fa-plus-circle fa-lg"></i> Add A Task</a>
         </div>
     </div>
@@ -83,18 +83,19 @@
             <h1 id="main-heading" class="main-heading py-3 mx-3 rounded-3 fw-bold w-75 mx-auto mb-sm-4">Create your  task</h1>
         </div>
         <div id="main-info" class="main-info d-flex flex-column flex-sm-row gap-3 justify-content-between text-start">
-            <form class="row g-4 needs-validation mx-auto" novalidate>
+            <form class="needs-validation mx-auto" id="form" novalidate>
+              <div class="row g-4">
                 <div class="col-6">
                   <label for="validationCustom01" class="form-label fw-medium ">Task Title</label>
                   <input type="text" class="form-control" id="validationCustom01" placeholder="Task title" required>
-                  <div class="invalid-feedback">
+                  <div class="invalid-feedback titleMsg">
                     Looks good!
                   </div>
                 </div>
                 <div class="col-6">
-                  <label for="validationCustom02" class="form-label fw-medium ">End Date</label>
-                  <input type="date" class="form-control" id="validationCustom02" placeholder="End date" required>
-                  <div class="invalid-feedback">
+                  <label for="validationCustom03" class="form-label fw-medium ">End Date</label>
+                  <input type="date" class="form-control" id="validationCustom03" placeholder="End date" required>
+                  <div class="invalid-feedback endDateMsg">
                     Looks good!
                   </div>
                 </div>
@@ -102,42 +103,44 @@
                 <div class="col-6">
                   <label for="validationCustom04" class="form-label fw-medium ">Priority Level</label>
                   <select class="form-select" id="validationCustom04" required>
-                    <option selected value="">Low</option>
-                    <option>Medium</option>
-                    <option>High</option>
+                    <option selected value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
                   </select>
-                  <div class="invalid-feedback">
+                  <div class="invalid-feedback priorityMsg">
                     Please select a valid Priority Level.
                   </div>
                 </div>
                 <div class="col-6">
-                  <label for="validationCustom04" class="form-label fw-medium ">Category</label>
-                  <select class="form-select" id="validationCustom04" required>
-                    <option selected value="">Daily Task</option>
-                    <option value="">Monthly Task</option>
-                    <option value="">Weekly Task</option>
+                  <label for="validationCustom05" class="form-label fw-medium ">Category</label>
+                  <select class="form-select" id="validationCustom05" required>
+                    <option selected value="daily task">Daily Task</option>
+                    <option value="weekly task">Weekly Task</option>
+                    <option value="monthly task">Monthly Task</option>
                   </select>
-                  <div class="invalid-feedback">
+                  <div class="invalid-feedback categoryMsg">
                     Please select a valid Category.
                   </div>
                 </div>
                 <div class="col-sm-12">
-                  <label for="validationCustom05" class="form-label fw-medium ">Description</label>
-                  <textarea class="form-control" cols="30" rows="7" id="validationCustom05" placeholder="Write important notes here..." required></textarea>
-                  <div class="invalid-feedback">
+                  <label for="validationCustom06" class="form-label fw-medium ">Description</label>
+                  <textarea class="form-control" cols="30" rows="7" id="validationCustom06" placeholder="Write important notes here..." required></textarea>
+                  <div class="invalid-feedback descMsg">
                     Please provide a valid Description.
                   </div>
                 </div>
                 <div class="col-12 text-center pt-3">
-                  <button class="btn btn-primary  w-50 add-list-btn" type="submit" >Add to List</button>
+                  <button class="btn btn-primary  w-50 add-list-btn" type="submit">Add to List</button>
                 </div>
+              </div>
             </form>
         </div>
         
-      </div>
+    </div>
   
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="sidebarscript.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+<script src="sidebarscript.js" defer></script>
+<script src="script.js" defer></script>
 
 </html>
