@@ -163,6 +163,10 @@ i {
   .navbar-collapse.show + #main {
     margin-top: 380px !important;
   }
+
+  .main.paddingX-5 {
+    padding-inline: 1rem !important;
+  }
 }
 
 
