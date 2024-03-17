@@ -47,9 +47,11 @@ const formValidation = ()=>{
         isValid=false;
         console.log('desc error')
     }
-    console.log('inside formvalidation')
+
     if(isValid){
         createTodo();
+    }else {
+        console.log('invalid');
     }
 }
 
@@ -80,5 +82,31 @@ runningTasks.addEventListener('click', ()=>{
     orderGroup.classList.add('display-none');
     realMain.classList.add('display-flex');
     load.classList.add('display-block');
-    
+
+    renderTodos();
 })
+
+const renderTodos = () => {
+    console.log('render todo')
+    list.innerHTML=todos.map((todo,index) => {
+        return `<div class="col col-sm-6 ">
+        <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
+            <div class="todo-title-info d-flex align-items-center justify-content-between">
+                <span class="todo-title fw-medium">${todo.title}</span>
+                <i class="fa-solid fa-circle-info fa-lg" style="color: #FFDDD2;"></i>
+            </div>
+            <div class="todo-date-info d-flex align-items-center justify-content-between ">
+                <span class="todo-date fw-medium">Start date: ${todo.endDate}</span>
+                <i class="fa-solid fa-pen-to-square fa-lg" style="color: #FFDDD2;" onclick=updateTodo(${index})></i>
+            </div>
+            <div class="todo-delete-info d-flex align-items-center justify-content-between">
+                <span class="mark-as-completed fw-medium"><i class="fa-regular fa-square fa-lg
+                    me-2" style="color: #FFDDD2;"></i>Mark as completed</span>
+                <i class="fa-regular fa-trash-can fa-lg" style="color: #FFDDD2;" onclick=deleteTodo(${index})></i>
+            </div>
+        </div>
+      </div>`
+    }).join(' ');
+}
+
+
