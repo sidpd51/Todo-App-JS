@@ -5,6 +5,13 @@ let endDate = document.getElementById('validationCustom03');
 let priorityLevel = document.getElementById('validationCustom04');
 let category = document.getElementById('validationCustom05');
 let desc = document.getElementById('validationCustom06');
+let realMain = document.getElementById('real-main');
+let runningTasks = document.getElementById('runningTasks');
+let mainInfo = document.getElementById('main-info');
+let mainHeading = document.getElementById('main-heading');
+let orderGroup = document.getElementById('order-group');
+let list = document.getElementById('list');
+let load = document.getElementById('load');
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -40,7 +47,7 @@ const formValidation = ()=>{
         isValid=false;
         console.log('desc error')
     }
-
+    console.log('inside formvalidation')
     if(isValid){
         createTodo();
     }
@@ -66,6 +73,12 @@ const createTodo = ()=> {
     // reset function 
 }
 
-const updateTodo = ()=> {
+
+runningTasks.addEventListener('click', ()=>{
+    mainHeading.innerHTML='Running Tasks';
+    mainInfo.classList.add('display-none');
+    orderGroup.classList.add('display-none');
+    realMain.classList.add('display-flex');
+    load.classList.add('display-block');
     
-}
+})

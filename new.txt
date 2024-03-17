@@ -149,69 +149,69 @@ create todo
 
 update todo
 
- <div class="main p-4 text-center d-flex flex-column gap-3 paddingX-5" id="main">
-      <div class="main-heading-section">
-          <h1 id="main-heading" class="main-heading py-3 mx-3 rounded-3 fw-bold w-75 mx-auto mb-sm-4">Update your  task</h1>
-      </div>
-      <div id="main-info" class="main-info d-flex flex-column flex-sm-row gap-3 justify-content-between text-start">
-          <form class="row g-4 needs-validation mx-auto" novalidate>
-              <div class="col-6">
-                <label for="validationCustom01" class="form-label fw-medium ">Task Title</label>
-                <input type="text" class="form-control" id="validationCustom01" placeholder="Task title" required>
-                <div class="invalid-feedback">
-                  Looks good!
-                </div>
-              </div>
-              <div class="col-6">
-                <label for="validationCustom02" class="form-label fw-medium ">Start Date</label>
-                <input type="date" class="form-control" id="validationCustom02"  required>
-                <div class="invalid-feedback">
-                  Looks good!
-                </div>
-              </div>
-              <div class="col-6">
-                <label for="validationCustom03" class="form-label fw-medium ">End Date</label>
-                <input type="date" class="form-control" id="validationCustom03" required>
-                <div class="invalid-feedback">
-                  Looks good!
-                </div>
-              </div>
-    
-              <div class="col-6">
-                <label for="validationCustom04" class="form-label fw-medium ">Priority Level</label>
-                <select class="form-select" id="validationCustom04" required>
-                  <option selected value="">Low</option>
-                  <option>Medium</option>
-                  <option>High</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid Priority Level.
-                </div>
-              </div>
-              <div class="col-6">
-                <label for="validationCustom04" class="form-label fw-medium ">Category</label>
-                <select class="form-select" id="validationCustom04" required>
-                  <option selected value="">Daily Task</option>
-                  <option value="">Monthly Task</option>
-                  <option value="">Weekly Task</option>
-                </select>
-                <div class="invalid-feedback">
-                  Please select a valid Category.
-                </div>
-              </div>
-              <div class="col-sm-12">
-                <label for="validationCustom05" class="form-label fw-medium ">Description</label>
-                <textarea class="form-control" cols="30" rows="7" id="validationCustom05" placeholder="Write important notes here..." required></textarea>
-                <div class="invalid-feedback">
-                  Please provide a valid Description.
-                </div>
-              </div>
-              <div class="col-12 text-center pt-3">
-                <button class="btn btn-primary  w-50 add-list-btn" type="submit" >Confirm Edit</button>
-              </div>
-          </form>
-      </div>
+<div class="main p-4 text-center d-flex flex-column gap-3 paddingX-5" id="main">
+    <div class="main-heading-section">
+        <h1 id="main-heading" class="main-heading py-3 mx-3 rounded-3 fw-bold w-75 mx-auto mb-sm-4">Update your  task</h1>
     </div>
+    <div id="main-info" class="main-info d-flex flex-column flex-sm-row gap-3 justify-content-between text-start">
+        <form class="row g-4 needs-validation mx-auto" novalidate>
+            <div class="col-6">
+              <label for="validationCustom01" class="form-label fw-medium ">Task Title</label>
+              <input type="text" class="form-control" id="validationCustom01" placeholder="Task title" required>
+              <div class="invalid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="validationCustom02" class="form-label fw-medium ">Start Date</label>
+              <input type="date" class="form-control" id="validationCustom02"  required>
+              <div class="invalid-feedback">
+                Looks good!
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="validationCustom03" class="form-label fw-medium ">End Date</label>
+              <input type="date" class="form-control" id="validationCustom03" required>
+              <div class="invalid-feedback">
+                Looks good!
+              </div>
+            </div>
+  
+            <div class="col-6">
+              <label for="validationCustom04" class="form-label fw-medium ">Priority Level</label>
+              <select class="form-select" id="validationCustom04" required>
+                <option selected value="">Low</option>
+                <option>Medium</option>
+                <option>High</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid Priority Level.
+              </div>
+            </div>
+            <div class="col-6">
+              <label for="validationCustom04" class="form-label fw-medium ">Category</label>
+              <select class="form-select" id="validationCustom04" required>
+                <option selected value="">Daily Task</option>
+                <option value="">Monthly Task</option>
+                <option value="">Weekly Task</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid Category.
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <label for="validationCustom05" class="form-label fw-medium ">Description</label>
+              <textarea class="form-control" cols="30" rows="7" id="validationCustom05" placeholder="Write important notes here..." required></textarea>
+              <div class="invalid-feedback">
+                Please provide a valid Description.
+              </div>
+            </div>
+            <div class="col-12 text-center pt-3">
+              <button class="btn btn-primary  w-50 add-list-btn" type="submit" >Confirm Edit</button>
+            </div>
+        </form>
+    </div>
+  </div>
 
 completed task
 
@@ -258,5 +258,7 @@ completed task
     <button class="btn completed-btn btn-sm mt-3 mt-sm-4 fw-medium" id="all-comopleted-tasks-btn">Completed
         Tasks<i class="fa-solid fa-arrow-right-long fa-lg ms-2" style="color: #006d77;"></i></button>
 </div>
+
+
 
 
