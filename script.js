@@ -6,7 +6,6 @@ let priorityLevel = document.getElementById('validationCustom04');
 let category = document.getElementById('validationCustom05');
 let desc = document.getElementById('validationCustom06');
 
-
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
     formValidation();
@@ -14,11 +13,18 @@ form.addEventListener('submit', (e)=>{
 
 const formValidation = ()=>{
     let isValid = true;
+
+    let date = new Date();
+    let day = date.getDay()+1;
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    let currentDate = `${year}-${month}-${day}`;
+
     if(title.value.trim()==='') {
         isValid=false;
         console.log('title error')
     }
-    if(!endDate.value) {
+    if(!endDate.value || endDate.value<currentDate) {
         isValid=false;
         console.log('enddate error')
     }
@@ -42,16 +48,24 @@ const formValidation = ()=>{
 
 let todos =[];
 const createTodo = ()=> {
-    
-
+    let date = new Date();
+    let day = date.getDay()+1;
+    let month = date.getMonth()+1;
+    let year = date.getFullYear();
+    let currentDate = `${year}-${month}-${day}`;
     let todo = {
         title: title.value,
+        startDate: currentDate,
         endDate: endDate.value,
         priorityLevel: priorityLevel.value,
         category: category.value,
         description: desc.value
     }
-
     todos.push(todo);
-    alert('todo added!')
+    alert('todo added!');
+    // reset function 
+}
+
+const updateTodo = ()=> {
+    
 }
