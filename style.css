@@ -228,3 +228,15 @@ select:checked {
   margin: 0 auto;
 }
 
+
+.display-none{
+  display: none !important;
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+.display-block {
+  display: block !important;
+}
