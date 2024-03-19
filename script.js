@@ -12,6 +12,7 @@ let mainHeading = document.getElementById('main-heading');
 let orderGroup = document.getElementById('order-group');
 let list = document.getElementById('list');
 let load = document.getElementById('load');
+let addTask = document.getElementById('addTasks');
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
@@ -84,6 +85,14 @@ runningTasks.addEventListener('click', ()=>{
     load.classList.add('display-block');
 
     renderTodos();
+})
+
+addTask.addEventListener('click', ()=> {
+    mainHeading.innerHTML='Create your task';
+    mainInfo.classList.remove('display-none');
+    orderGroup.classList.remove('display-none');
+    realMain.classList.remove('display-flex');
+    load.classList.remove('display-block');
 })
 
 const renderTodos = () => {
