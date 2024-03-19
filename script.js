@@ -14,27 +14,30 @@ let list = document.getElementById('list');
 let load = document.getElementById('load');
 let addTask = document.getElementById('addTasks');
 
+let titleMsg = document.querySelector('.titleMsg');
+let endDateMsg = document.querySelector('.endDateMsg');
+let descMsg = document.querySelector('.descMsg');
+
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
-    formValidation();
+    inputValidation();
 });
 
-const formValidation = ()=>{
+const inputValidation = ()=>{
     let isValid = true;
 
-    let date = new Date();
-    let day = date.getDay()+1;
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
-    let currentDate = `${year}-${month}-${day}`;
+    let currentDate = new Date().toJSON().slice(0,10);
+    console.log();
 
     if(title.value.trim()==='') {
         isValid=false;
-        console.log('title error')
+        console.log('title error');
+        titleMsg.innerHTML='Please Enter a valid title!';
     }
-    if(!endDate.value || endDate.value<currentDate) {
+    if(!endDate.value || currentDate>endDate.value) {
         isValid=false;
-        console.log('enddate error')
+        console.log('enddate error');
+        endDateMsg.innerHTML='Please Enter a valid end Date!'
     }
     if(!priorityLevel.value) {
         isValid=false;
@@ -47,6 +50,7 @@ const formValidation = ()=>{
     if(!desc.value) {
         isValid=false;
         console.log('desc error')
+        descMsg.innerHTML='Please Enter a valid description msg';
     }
 
     if(isValid){
@@ -73,9 +77,10 @@ const createTodo = ()=> {
     }
     todos.push(todo);
     alert('todo added!');
+    form.reset();
+    msgReset();
     // reset function 
 }
-
 
 runningTasks.addEventListener('click', ()=>{
     mainHeading.innerHTML='Running Tasks';
@@ -116,6 +121,12 @@ const renderTodos = () => {
         </div>
       </div>`
     }).join(' ');
+}
+
+const msgReset = ()=> {
+    titleMsg.innerHTML='';
+    endDateMsg.innerHTML='';
+    descMsg.innerHTML='';
 }
 
 
