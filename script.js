@@ -13,6 +13,7 @@ let orderGroup = document.getElementById('order-group');
 let list = document.getElementById('list');
 let load = document.getElementById('load');
 let addTask = document.getElementById('addTasks');
+let submitBtn = document.getElementById('submit-btn');
 
 let titleMsg = document.querySelector('.titleMsg');
 let endDateMsg = document.querySelector('.endDateMsg');
@@ -27,7 +28,6 @@ const inputValidation = ()=>{
     let isValid = true;
 
     let currentDate = new Date().toJSON().slice(0,10);
-    console.log();
 
     if(title.value.trim()==='') {
         isValid=false;
@@ -54,7 +54,17 @@ const inputValidation = ()=>{
     }
 
     if(isValid){
-        createTodo();
+        let val = submitBtn.getAttribute('data-action');
+        let title = submitBtn.innerHTML;
+        console.log(title)
+        if(val==='update' && title==='Update to List') {
+            console.log('inside update todo')
+            updateTodoList();
+        }
+        else { 
+            console.log('inside create todo')
+            createTodo();
+        };
     }else {
         console.log('invalid');
     }
@@ -62,24 +72,20 @@ const inputValidation = ()=>{
 
 let todos =[];
 const createTodo = ()=> {
-    let date = new Date();
-    let day = date.getDay()+1;
-    let month = date.getMonth()+1;
-    let year = date.getFullYear();
-    let currentDate = `${year}-${month}-${day}`;
+    let currentDate = new Date().toJSON().slice(0,10);
     let todo = {
         title: title.value,
-        startDate: currentDate,
         endDate: endDate.value,
         priorityLevel: priorityLevel.value,
         category: category.value,
         description: desc.value
     }
     todos.push(todo);
-    alert('todo added!');
+    alert('todo added successfully!');
+    //reset the form after submission
     form.reset();
+    //reset the errorMsgs 
     msgReset();
-    // reset function 
 }
 
 runningTasks.addEventListener('click', ()=>{
@@ -98,10 +104,48 @@ addTask.addEventListener('click', ()=> {
     orderGroup.classList.remove('display-none');
     realMain.classList.remove('display-flex');
     load.classList.remove('display-block');
+    submitBtn.innerHTML='Add to List';
+    msgReset();
 })
 
+const updateTodo = (index)=> {
+
+    addTask.click();
+    mainHeading.innerHTML='Update your task';
+    submitBtn.innerHTML='Update to List';
+
+    let currentTodo = todos[index];
+
+    if(currentTodo){
+        title.value= currentTodo.title,
+        endDate.value= currentTodo.endDate,
+        priorityLevel.value= currentTodo.priorityLevel,
+        category.value= currentTodo.category,
+        desc.value= currentTodo.description
+    }
+
+    submitBtn.setAttribute('data-action', 'update');
+    submitBtn.setAttribute('data-todo-index', index);
+}
+
+const updateTodoList = ()=> {
+    let index = submitBtn.getAttribute('data-todo-index');
+    if(index!=-1){
+        let modifiedTodo = {
+            title: title.value,
+            endDate: endDate.value,
+            priorityLevel: priorityLevel.value,
+            category: category.value,
+            description: desc.value
+        }
+        todos[index]=modifiedTodo;
+        console.log(modifiedTodo);
+    }
+    alert('todo updated successfully!');
+    runningTasks.click();
+}
+
 const renderTodos = () => {
-    console.log('render todo')
     list.innerHTML=todos.map((todo,index) => {
         return `<div class="col col-sm-6 ">
         <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
@@ -127,6 +171,13 @@ const msgReset = ()=> {
     titleMsg.innerHTML='';
     endDateMsg.innerHTML='';
     descMsg.innerHTML='';
-}
+    submitBtn.setAttribute('data-action', 'add');
+    submitBtn.removeAttribute('data-todo-index');
+} 
 
+const deleteTodo = (index)=> {
+    let result =confirm('Are you sure, you want to delete?')
+    if(result) todos.splice(index,1);
+    renderTodos();
+}
 
