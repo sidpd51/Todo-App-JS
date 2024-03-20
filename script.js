@@ -78,7 +78,8 @@ const createTodo = ()=> {
         endDate: endDate.value,
         priorityLevel: priorityLevel.value,
         category: category.value,
-        description: desc.value
+        description: desc.value,
+        completed: false
     }
     todos.push(todo);
     alert('todo added successfully!');
@@ -147,6 +148,7 @@ const updateTodoList = ()=> {
 
 const renderTodos = () => {
     list.innerHTML=todos.map((todo,index) => {
+        if(!todo.completed){
         return `<div class="col col-sm-6 ">
         <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
             <div class="todo-title-info d-flex align-items-center justify-content-between">
@@ -158,13 +160,13 @@ const renderTodos = () => {
                 <i class="fa-solid fa-pen-to-square fa-lg" style="color: #FFDDD2;" onclick=updateTodo(${index})></i>
             </div>
             <div class="todo-delete-info d-flex align-items-center justify-content-between">
-                <span class="mark-as-completed fw-medium"><i class="fa-regular fa-square fa-lg
+                <span class="mark-as-completed-${index} fw-medium" onclick=markAsCompleted(${index})><i class="fa-regular fa-pen-to-square fa-square fa-lg
                     me-2" style="color: #FFDDD2;"></i>Mark as completed</span>
                 <i class="fa-regular fa-trash-can fa-lg" style="color: #FFDDD2;" onclick=deleteTodo(${index})></i>
             </div>
         </div>
       </div>`
-    }).join(' ');
+    }}).join(' ');
 }
 
 const msgReset = ()=> {
@@ -181,3 +183,9 @@ const deleteTodo = (index)=> {
     renderTodos();
 }
 
+const markAsCompleted = (index) => {
+    // const elem = document.querySelector(`.mark-as-completed-${index}`);
+    todos[index].completed = true;
+    // elem.
+    renderTodos();
+}
