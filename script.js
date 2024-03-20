@@ -73,8 +73,17 @@ const inputValidation = ()=>{
 }
 
 let todos =[];
+const setLocalStorage = (todos)=>{
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
+
+const getLocalStorage = ()=>{
+    return JSON.parse(localStorage.getItem('todos')) || [];
+}
+
+// setLocalStorage(todos);
+
 const createTodo = ()=> {
-    let currentDate = new Date().toJSON().slice(0,10);
     let todo = {
         title: title.value,
         endDate: endDate.value,
@@ -83,7 +92,9 @@ const createTodo = ()=> {
         description: desc.value,
         completed: false
     }
+    let todos = getLocalStorage();
     todos.push(todo);
+    setLocalStorage(todos)
     alert('todo added successfully!');
     //reset the form after submission
     form.reset();
@@ -116,7 +127,7 @@ const updateTodo = (index)=> {
     addTask.click();
     mainHeading.innerHTML='Update your task';
     submitBtn.innerHTML='Update to List';
-
+    let todos = getLocalStorage();
     let currentTodo = todos[index];
 
     if(currentTodo){
@@ -141,14 +152,16 @@ const updateTodoList = ()=> {
             category: category.value,
             description: desc.value
         }
+        let todos = getLocalStorage();
         todos[index]=modifiedTodo;
-        console.log(modifiedTodo);
+        setLocalStorage(todos);
     }
     alert('todo updated successfully!');
     runningTasks.click();
 }
 
 const renderTodos = () => {
+    let todos = getLocalStorage();
     list.innerHTML=todos.slice(0,visible).map((todo,index) => {
         if(!todo.completed){
         return `<div class="col col-sm-6 ">
@@ -181,13 +194,17 @@ const msgReset = ()=> {
 
 const deleteTodo = (index)=> {
     let result =confirm('Are you sure, you want to delete?')
+    let todos = getLocalStorage();
     if(result) todos.splice(index,1);
+    setLocalStorage(todos);
     renderTodos();
 }
 
 const markAsCompleted = (index) => {
     // const elem = document.querySelector(`.mark-as-completed-${index}`);
+    let todos = getLocalStorage()
     todos[index].completed = true;
+    setLocalStorage(todos);
     // elem.
     alert('')
     renderTodos();
