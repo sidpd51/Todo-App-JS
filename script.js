@@ -19,6 +19,8 @@ let titleMsg = document.querySelector('.titleMsg');
 let endDateMsg = document.querySelector('.endDateMsg');
 let descMsg = document.querySelector('.descMsg');
 
+let visible = 6;
+
 form.addEventListener('submit', (e)=>{
     e.preventDefault();
     inputValidation();
@@ -147,7 +149,7 @@ const updateTodoList = ()=> {
 }
 
 const renderTodos = () => {
-    list.innerHTML=todos.map((todo,index) => {
+    list.innerHTML=todos.slice(0,visible).map((todo,index) => {
         if(!todo.completed){
         return `<div class="col col-sm-6 ">
         <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
@@ -187,5 +189,11 @@ const markAsCompleted = (index) => {
     // const elem = document.querySelector(`.mark-as-completed-${index}`);
     todos[index].completed = true;
     // elem.
+    alert('')
+    renderTodos();
+}
+
+const loadMore = () => {
+    visible+=4;
     renderTodos();
 }
