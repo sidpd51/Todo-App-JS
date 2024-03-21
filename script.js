@@ -6,6 +6,9 @@ let priorityLevel = document.getElementById('validationCustom04');
 let category = document.getElementById('validationCustom05');
 let desc = document.getElementById('validationCustom06');
 let realMain = document.getElementById('real-main');
+let dashboard = document.getElementById('dashboard');
+let allTasks = document.getElementById('allTasks');
+let completedTasks = document.getElementById('completedTasks');
 let runningTasks = document.getElementById('runningTasks');
 let mainInfo = document.getElementById('main-info');
 let mainHeading = document.getElementById('main-heading');
@@ -102,6 +105,36 @@ const createTodo = ()=> {
     msgReset();
 }
 
+dashboard.addEventListener('click', () => {
+    mainHeading.innerHTML = 'Dashboard';
+    mainInfo.classList.add('display-none');
+    orderGroup.classList.add('display-none');
+    realMain.classList.add('display-flex');
+    load.classList.add('display-block');
+
+    renderTodos();
+})
+
+allTasks.addEventListener('click', () =>{
+    mainHeading.innerHTML='All Tasks';
+    mainInfo.classList.add('display-none');
+    orderGroup.classList.add('display-none');
+    realMain.classList.add('display-flex');
+    load.classList.add('display-block');
+
+    renderAllTodos();
+})
+
+completedTasks.addEventListener('click', () => {
+    mainHeading.innerHTML='Completed Tasks';
+    mainInfo.classList.add('display-none');
+    orderGroup.classList.add('display-none');
+    realMain.classList.add('display-flex');
+    load.classList.add('display-block');
+
+    renderCompletedTodos();
+})
+
 runningTasks.addEventListener('click', ()=>{
     mainHeading.innerHTML='Running Tasks';
     mainInfo.classList.add('display-none');
@@ -109,7 +142,7 @@ runningTasks.addEventListener('click', ()=>{
     realMain.classList.add('display-flex');
     load.classList.add('display-block');
 
-    renderTodos();
+    renderRunningTodos();
 })
 
 addTask.addEventListener('click', ()=> {
@@ -160,10 +193,57 @@ const updateTodoList = ()=> {
     runningTasks.click();
 }
 
-const renderTodos = () => {
+const renderAllTodos = () => {
+    let todos = getLocalStorage();
+    list.innerHTML=todos.slice(0,visible).map((todo,index) => {
+        return `<div class="col col-sm-6 ">
+        <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
+            <div class="todo-title-info d-flex align-items-center justify-content-between">
+                <span class="todo-title fw-medium">${todo.title}</span>
+                <i class="fa-solid fa-circle-info fa-lg" style="color: #FFDDD2;"></i>
+            </div>
+            <div class="todo-date-info d-flex align-items-center justify-content-between ">
+                <span class="todo-date fw-medium">Start date: ${todo.endDate}</span>
+                <i class="fa-solid fa-pen-to-square fa-lg" style="color: #FFDDD2;" onclick=updateTodo(${index})></i>
+            </div>
+            <div class="todo-delete-info d-flex align-items-center justify-content-between">
+                <span class="mark-as-completed-${index} fw-medium" onclick=markAsCompleted(${index})><i class="fa-regular fa-pen-to-square fa-square fa-lg
+                    me-2" style="color: #FFDDD2;"></i>Mark as completed</span>
+                <i class="fa-regular fa-trash-can fa-lg" style="color: #FFDDD2;" onclick=deleteTodo(${index})></i>
+            </div>
+        </div>
+      </div>`
+    }).join(' ');
+}
+
+const renderRunningTodos = () => {
     let todos = getLocalStorage();
     list.innerHTML=todos.slice(0,visible).map((todo,index) => {
         if(!todo.completed){
+        return `<div class="col col-sm-6 ">
+        <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
+            <div class="todo-title-info d-flex align-items-center justify-content-between">
+                <span class="todo-title fw-medium">${todo.title}</span>
+                <i class="fa-solid fa-circle-info fa-lg" style="color: #FFDDD2;"></i>
+            </div>
+            <div class="todo-date-info d-flex align-items-center justify-content-between ">
+                <span class="todo-date fw-medium">Start date: ${todo.endDate}</span>
+                <i class="fa-solid fa-pen-to-square fa-lg" style="color: #FFDDD2;" onclick=updateTodo(${index})></i>
+            </div>
+            <div class="todo-delete-info d-flex align-items-center justify-content-between">
+                <span class="mark-as-completed-${index} fw-medium" onclick=markAsCompleted(${index})><i class="fa-regular fa-pen-to-square fa-square fa-lg
+                    me-2" style="color: #FFDDD2;"></i>Mark as completed</span>
+                <i class="fa-regular fa-trash-can fa-lg" style="color: #FFDDD2;" onclick=deleteTodo(${index})></i>
+            </div>
+        </div>
+      </div>`
+    }}).join(' ');
+}
+
+const renderCompletedTodos = () => {
+    let todos = getLocalStorage();
+    list.innerHTML=todos.slice(0,visible).map((todo,index) => {
+        if(todo.completed){
         return `<div class="col col-sm-6 ">
         <div class="todo-card mx-auto d-flex flex-column gap-3 p-4 rounded-3">
             <div class="todo-title-info d-flex align-items-center justify-content-between">
@@ -197,17 +277,24 @@ const deleteTodo = (index)=> {
     let todos = getLocalStorage();
     if(result) todos.splice(index,1);
     setLocalStorage(todos);
-    renderTodos();
+    renderCompletedTodos();
 }
 
 const markAsCompleted = (index) => {
     // const elem = document.querySelector(`.mark-as-completed-${index}`);
     let todos = getLocalStorage()
-    todos[index].completed = true;
-    setLocalStorage(todos);
-    // elem.
-    alert('')
-    renderTodos();
+    if(todos[index].completed) {
+        alert('Mark As uncompleted');
+        todos[index].completed = false;
+        setLocalStorage(todos);
+        renderCompletedTodos();
+    }
+    else {
+        alert('Mark As completed');
+        todos[index].completed = true;
+        setLocalStorage(todos);
+        renderRunningTodos();
+    }
 }
 
 const loadMore = () => {
